@@ -40,6 +40,34 @@ document.addEventListener("DOMContentLoaded", () => {
       const progress = (audio.currentTime / audio.duration) * 100;
       progressFill.style.width = `${progress}%`;
     });
+
+    audio.addEventListener("waiting", () => {
+      icon.classList.remove("bi-play-fill", "bi-pause-fill");
+      icon.classList.add("bi-arrow-clockwise");
+    });
+    
+    audio.addEventListener("canplay", () => {
+      // Only switch to play if audio is still paused
+      if (audio.paused) {
+        icon.classList.remove("bi-arrow-clockwise");
+        icon.classList.add("bi-play-fill");
+      } else {
+        icon.classList.remove("bi-arrow-clockwise");
+        icon.classList.add("bi-pause-fill");
+      }
+    });
+    
+    audio.addEventListener("canplaythrough", () => {
+      // Same as above for better coverage
+      if (audio.paused) {
+        icon.classList.remove("bi-arrow-clockwise");
+        icon.classList.add("bi-play-fill");
+      } else {
+        icon.classList.remove("bi-arrow-clockwise");
+        icon.classList.add("bi-pause-fill");
+      }
+    });
+    
   
     // Handle the mouse and touch drag functionality on the entire card
     const onDrag = (e) => {
