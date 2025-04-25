@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Touch (for mobile)
     card.addEventListener("touchstart", pressDown);
     document.addEventListener("touchend", liftUp);
+    document.addEventListener("touchendoutside", liftUp);
     document.addEventListener("touchcancel", liftUp);
 
     // Handle play/pause toggling

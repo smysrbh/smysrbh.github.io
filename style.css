@@ -25,12 +25,12 @@ html, body {
     filter: drop-shadow(10px 10px 4px #000);
     box-sizing: border-box;
     display: flex;   
-    transition: box-shadow 0.3s ease, transform 0.1s ease;
+    transition: /*box-shadow 0.3s ease, */ transform 0.1s ease;
     z-index: 1;
   }
-  .centered:hover {
+  /*.centered:hover {
     box-shadow: 0 0 15px #fbfbfb; 
-  }
+  }*/
   .centered.clicked {
     transform: translate(-50%, -50%) scale(0.95); /* Keep it centered and shrink */
   }
