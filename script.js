@@ -40,43 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const progress = (audio.currentTime / audio.duration) * 100;
       progressFill.style.width = `${progress}%`;
     });
-
-    audio.addEventListener("waiting", () => {
-      icon.classList.remove("bi-play-fill", "bi-pause-fill","bi-exclamation-triangle-fill");
-      icon.classList.add("bi-arrow-clockwise");
-    });
-    
-    audio.addEventListener("canplay", () => {
-      // Only switch to play if audio is still paused
-      if (audio.paused) {
-        icon.classList.remove("bi-arrow-clockwise");
-        icon.classList.add("bi-play-fill");
-      } else {
-        icon.classList.remove("bi-arrow-clockwise");
-        icon.classList.add("bi-pause-fill");
-      }
-    });
-    
-    audio.addEventListener("canplaythrough", () => {
-      // Same as above for better coverage
-      if (audio.paused) {
-        icon.classList.remove("bi-arrow-clockwise");
-        icon.classList.add("bi-play-fill");
-      } else {
-        icon.classList.remove("bi-arrow-clockwise");
-        icon.classList.add("bi-pause-fill");
-      }
-    });
-    audio.addEventListener("error", () => {
-      document.getElementById("songname").textContent = "404 Error";
-      document.getElementById("artistname").textContent = "Can't play the audio";
-    
-      icon.classList.remove("bi-play-fill", "bi-pause-fill", "bi-arrow-clockwise");
-      icon.classList.add("bi-exclamation-triangle-fill");
-    
-      progressFill.style.width = "0%";
-    });
-    
   
     // Handle the mouse and touch drag functionality on the entire card
     const onDrag = (e) => {
