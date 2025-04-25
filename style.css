@@ -22,7 +22,8 @@ html, body {
     margin: 0px;
     border-radius: 25px;
     overflow: hidden; 
-    filter: drop-shadow(10px 10px 4px #000);
+   /* filter: drop-shadow(10px 10px 4px #000);*/
+    box-shadow: 10px 10px 4px #000;
     box-sizing: border-box;
     display: flex;   
     transition: /*box-shadow 0.3s ease, */ transform 0.1s ease;
