@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     audio.addEventListener("waiting", () => {
-      icon.classList.remove("bi-play-fill", "bi-pause-fill");
+      icon.classList.remove("bi-play-fill", "bi-pause-fill","bi-exclamation-triangle-fill");
       icon.classList.add("bi-arrow-clockwise");
     });
     
@@ -66,6 +66,15 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.classList.remove("bi-arrow-clockwise");
         icon.classList.add("bi-pause-fill");
       }
+    });
+    audio.addEventListener("error", () => {
+      document.getElementById("songname").textContent = "404 Error";
+      document.getElementById("artistname").textContent = "Can't play the audio";
+    
+      icon.classList.remove("bi-play-fill", "bi-pause-fill", "bi-arrow-clockwise");
+      icon.classList.add("bi-exclamation-triangle-fill");
+    
+      progressFill.style.width = "0%";
     });
     
   
