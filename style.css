@@ -4,24 +4,25 @@ html, body {
     background: rgb(27, 27, 27);
 }
   
-  .centered {
+  .audioPlayer {
     user-select: none;
     -webkit-user-select: none; /* For Safari */
     -moz-user-select: none;    /* For Firefox */
     -ms-user-select: none;     /* For Internet Explorer/Edge */
-    position: absolute;    
-    top: 50%;
+    position: relative;    
+    /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1.5rem; /* optional styling */
     background-color: #3d251b;
     max-width: 400px;
-    width: 90vw;
+    width: 90%;
     height: 100px;
     padding: 0px;
     margin: 0px;
     border-radius: 25px;
     overflow: hidden; 
+    margin: auto;
    /* filter: drop-shadow(10px 10px 4px #000);*/
     box-shadow: 10px 10px 4px #000;
     box-sizing: border-box;
@@ -32,11 +33,11 @@ html, body {
   /*.centered:hover {
     box-shadow: 0 0 15px #fbfbfb; 
   }*/
-  .centered.clicked {
-    transform: translate(-50%, -50%) scale(0.95); /* Keep it centered and shrink */
+  .audioPlayer.clicked {
+    transform:  scale(0.95); /* Keep it centered and shrink */
   }
   .progress-area {
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     margin-left: 100px;
     width: calc(100% - 100px);
@@ -71,18 +72,48 @@ html, body {
     color: #bdbdbd
 
 }
-#songname {
+.songname {
     pointer-events: none;
-    padding-top: 15px;
+    padding-top: 20px;
     font-family: 'DejaVu Sans Bold', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
 }
-#artistname {
+.artistname {
 
     padding-top: 5px;
     font-family: 'DejaVu Sans Extra Light', sans-serif;
-    font-size: .90rem;
+    font-size: .8rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+  padding-left: clamp(0, 10vw, 10%);
+  padding-right: clamp(0, 10vw, 10%);
+  max-width: 1550px;
+  align-items: center;
+  margin: auto;
+  
+}
+
+/* Tablet (up to 1024px wide) */
+@media (max-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+
+  }
+}
+
+/* Phone (up to 640px wide) */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0;
+    max-width: 500px;
+  }
 }
 
 .icon {
