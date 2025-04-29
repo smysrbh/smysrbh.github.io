@@ -18,7 +18,7 @@ html, body {
     max-width: 400px;
     width: 90%;
     height: 100px;
-    padding: 0px;
+    padding-right: 60px;
     margin: 0px;
     border-radius: 25px;
     overflow: hidden; 
@@ -55,7 +55,7 @@ html, body {
     transition: width 0.1s linear;
    
   }
-  .centered *:not(.progress-fill, .progress-area) {
+  .audioPlayer *:not(.progress-fill, .progress-area) {
     z-index: 1; /* Keep content above progress-fill */
   }
   .albumart {
@@ -63,13 +63,18 @@ html, body {
     background-color: #3d251b;
     object-fit: cover;
     flex-shrink: 0;
+    margin-right: 25px;
 
 }
 .songdetails{
     pointer-events: none;
     flex-direction: column;
-    padding-left: 25px;
-    color: #bdbdbd
+    color: #bdbdbd;
+    display: flex;
+    flex: 1; /* allow it to grow but respect flex rules */
+    min-width: 0;
+    overflow: hidden;
+    width: 100%;
 
 }
 .songname {
@@ -77,6 +82,9 @@ html, body {
     padding-top: 20px;
     font-family: 'DejaVu Sans Bold', sans-serif;
     font-size: 1.2rem;
+    white-space: nowrap;    /* Prevent text from wrapping */
+
+
 
 }
 .artistname {
@@ -84,6 +92,9 @@ html, body {
     padding-top: 5px;
     font-family: 'DejaVu Sans Extra Light', sans-serif;
     font-size: .8rem;
+    white-space: nowrap;    /* Prevent text from wrapping */
+
+
 }
 .grid {
   display: grid;
@@ -129,3 +140,18 @@ html, body {
     align-items: center;       /* Centers vertically */
 
   }
+
+@keyframes marquee-bounce {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(0); }
+  45% { transform: translateX(calc(var(--move-distance) * -1px)); }
+  55% { transform: translateX(calc(var(--move-distance) * -1px)); }
+  90% { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+.marquee {
+
+  white-space: nowrap;
+  animation: marquee-bounce 6s ease-in-out infinite;
+}

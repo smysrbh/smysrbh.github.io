@@ -136,6 +136,32 @@ function createAudioPlayer({
     icon.classList.add("bi-play-fill");
     progressFill.style.width = "0%";
   });
+  const songNameDiv = container.querySelector(".songname");
+const artistNameDiv = container.querySelector(".artistname");
+
+// Function to check and apply marquee
+function applyMarqueeIfNeeded(el) {
+  if (el.scrollWidth > el.clientWidth) {
+    const moveDistance = el.scrollWidth - el.clientWidth;
+    el.style.setProperty('--move-distance', moveDistance);
+    el.classList.add('marquee');
+  } else {
+    el.classList.remove('marquee');
+    el.style.removeProperty('--move-distance');
+
+  }
+}
+
+// Check initially
+applyMarqueeIfNeeded(songNameDiv);
+applyMarqueeIfNeeded(artistNameDiv);
+
+// Check again on window resize
+window.addEventListener('resize', () => {
+  applyMarqueeIfNeeded(songNameDiv);
+  applyMarqueeIfNeeded(artistNameDiv);
+});
+
 }
 
 // Helper function to pause all other players
