@@ -100,8 +100,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5rem;
-  padding-left: clamp(0, 10vw, 10%);
-  padding-right: clamp(0, 10vw, 10%);
+  padding-top:50px;
   max-width: 1550px;
   align-items: center;
   margin: auto;
