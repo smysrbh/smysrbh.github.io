@@ -59,6 +59,7 @@ html, body {
     z-index: 1; /* Keep content above progress-fill */
   }
   .albumart {
+    pointer-events: none;
     max-height: 100px; 
     background-color: #3d251b;
     object-fit: cover;
@@ -100,7 +101,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 5rem;
-  padding-top:50px;
+  padding-top: 50px;
   max-width: 1550px;
   align-items: center;
   margin: auto;
@@ -121,6 +122,7 @@ html, body {
   .grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+
     max-width: 500px;
   }
 }
